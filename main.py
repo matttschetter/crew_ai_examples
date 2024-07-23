@@ -70,6 +70,12 @@ from datetime import datetime
 from random import randint
 from langchain.tools import tool
 
+
+################################################################################################################################################################################
+#####Custom Tools
+################################################################################################################################################################################
+overview = """This is where all the custom tools are built."""
+
 @tool("save_content")
 def save_content(task_output):
     """Useful to save content to a markdown file"""
@@ -105,6 +111,12 @@ search_tool = DuckDuckGoSearchRun()
 human_tools = load_tools(["human"])
 
 from crewai import Agent
+
+################################################################################################################################################################################
+#####Defining the Agents
+################################################################################################################################################################################
+
+overview = """This is where all the agents are built and where they run."""
 
 # Define your agents with roles and goals
 info_getter = Agent(
@@ -185,6 +197,11 @@ archiver = Agent(
 
 from datetime import datetime
 
+################################################################################################################################################################################
+#####Building the Tasks
+################################################################################################################################################################################
+overview = """This section here is where you define and build all the tasks required for the agent to run"""
+
 # Create tasks for your agents
 get_source_material = Task(
   description=f"""Conduct a comprehensive analysis of the latest news advancements in an area
@@ -220,6 +237,14 @@ saving_the_output = Task(
 )
 
 from crewai import Crew, Process
+
+
+
+
+################################################################################################################################################################################
+#####Activate the Crew
+################################################################################################################################################################################
+overview = """This code is linking all the tasks and agents to run the code"""
 
 # Instantiate your crew with a sequential process
 crew = Crew(
